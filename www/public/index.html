@@ -1,0 +1,90 @@
+<html>
+
+    <head>
+
+        <title>Your first Docker container!</title>
+
+        <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+
+        <style>
+            body {
+                font-family: "Roboto";
+                font-size: 1.4em;
+                background-color: #4E4E4E;
+                color: #DADAC0;
+                padding: 0px;
+                margin: 0px;
+                padding-top: 3%;
+                padding-bottoM: 3%;
+            }
+
+            h1 {
+                text-align: center;
+                font-size: 3em;
+            }
+
+            #content {
+                margin-left: auto;
+                margin-right: auto;
+                width: 35%;
+                text-align: center;
+            }
+
+            #content > img {
+                width: 100%;
+                margin-bottom: 8%;
+            }
+
+            #content > div {
+                display: inline-block;
+                text-align: center;
+                background-color: #DADAC0;
+                color: #4E4E4E;
+                padding-left: 6%;
+                padding-right: 6%;
+                padding-top: 2%;
+                padding-bottom: 2%;
+                margin-top: 6%;
+                cursor: pointer;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                user-select: none;
+            }
+
+            #content > div:hover {
+                color: cornflowerblue;
+            }
+            #content > div:active {
+                color: green;
+            }
+
+            #music {
+                display: none;
+            }
+
+        </style>
+
+    </head>
+
+    <body>
+
+        <h1>Congratulations!</h1>
+
+        <div id="content">
+
+            <img src="/docker.png" />
+            <img src="/nginx.png" />
+
+            <p>You've just created and run your first docker container!</p>
+
+            <div onclick="music.play();">Victory Music</div>
+            <audio id="music" controls>
+                <source src="http://hosting.raymanpc.com/raytunes/music/RL/014%20-%20Score%20Recap.mp3" type="audio/mpeg">
+                (Your browser does not support the audio element.)
+            </audio>
+
+        </div>
+
+    </body>
+
+</html>

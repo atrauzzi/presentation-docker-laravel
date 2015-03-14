@@ -1,0 +1,30 @@
+# We will base our image off of the current version of Ubuntu.
+FROM ubuntu
+
+# Hype!
+MAINTAINER "Alexander Trauzzi" <alexander@gmail.com>
+
+# Sets the CWD/PWD for all commands during this script as well as when the container is running.
+WORKDIR /tmp
+
+# We can now issue system-level commands to configure our environment.
+RUN apt-get update -y
+RUN apt-get install -y nginx
+
+# Put a full copy of our source files in the container.
+ADD /www /var/www
+
+# Add our configuration and entrypoints.
+ADD nginx.conf /nginx.base.conf
+ADD nginx.vhost.conf /etc/nginx/sites-available/docker-laravel
+ADD nginx.entrypoint.sh /entrypoint.sh
+
+# Wire up the config in the container.
+RUN ln -s /etc/nginx/sites-available/docker-laravel /etc/nginx/sites-enabled/docker-laravel
+RUN rm /etc/nginx/sites-enabled/default
+
+# Allow traffic from port 8080 to and from the container's host.
+EXPOSE 8080
+
+# When the container is executed, run this script.
+ENTRYPOINT ["/entrypoint.sh"]

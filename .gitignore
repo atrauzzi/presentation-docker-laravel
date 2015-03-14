@@ -1,2 +1,4 @@
 .idea
 nbproject
+www/storage/framework/sessions
+www/storage/framework/views

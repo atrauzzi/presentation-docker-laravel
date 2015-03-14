@@ -1,0 +1,24 @@
+# We will base our image off of the current version of Ubuntu.
+FROM ubuntu
+
+# Hype!
+MAINTAINER "Alexander Trauzzi" <atrauzzi@gmail.com>
+
+# Sets the CWD/PWD for all commands during this script as well as when the container is running.
+WORKDIR /tmp
+
+# We can now issue system-level commands to configure our environment.
+RUN apt-get update -y
+RUN apt-get install -y php5-mongo php5-mysql php5-pgsql php5-redis php5-json php5-mcrypt php5-curl php5-fpm
+RUN php5enmod mcrypt
+
+# Add our configuration.
+ADD /www /var/www
+ADD /php-fpm.conf /etc/php5/fpm/php-fpm.conf
+ADD /php-fpm.www.conf /etc/php5/fpm/pool.d/www.conf
+
+# Make port 9000 available from this container.
+EXPOSE 9000
+
+# When the container is executed, run this.
+ENTRYPOINT ["/usr/sbin/php5-fpm", "-F", "-R"]

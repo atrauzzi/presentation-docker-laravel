@@ -18,20 +18,14 @@ In an effort to keep things simple, this demo will not create any shell scripts 
 
 When commits require new commands, those commands will be added to this section.
 
-### Trying out a simple web server
+### Adding Laravel and PHP-FPM
 
 **Please ensure all commands are run from the root of the git repository.**
 
- 1. `docker build --tag="nginx-simple" --file="Dockerfile.nginx" .`
- 2. `docker images`
- 3. `docker run --detach --publish=8080:8080 --name=nginx-simple nginx-simple`
- 4. Take a look! Navigate to your host on port _8080_!
- 5. Edit or replace any file in `www/public`.
- 6. `docker stop nginx-simple`
- 7. `docker rm nginx-simple`
- 8. ``docker run --detach --publish=8080:8080 --name=nginx-simple --volume="`pwd`/www:/var/www" nginx-simple``
- 9. Edit or replace any file in `www/public`.
- 10. `docker stop nginx-simple`
+ 1. `docker build --tag="php-fpm" --file="Dockerfile.php-fpm" .`
+ 2. ``docker run --detach="true" --env="APP_DEBUG=true" --env="APP_ENV=local" --volume=`pwd`/www:/var/www --name=php-fpm php-fpm``
+
+ 
 
 ## Meta
 

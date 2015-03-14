@@ -2,7 +2,7 @@
 FROM ubuntu
 
 # Hype!
-MAINTAINER "Alexander Trauzzi" <alexander@gmail.com>
+MAINTAINER "Alexander Trauzzi" <atrauzzi@gmail.com>
 
 # Sets the CWD/PWD for all commands during this script as well as when the container is running.
 WORKDIR /tmp

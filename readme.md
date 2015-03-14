@@ -18,15 +18,17 @@ In an effort to keep things simple, this demo will not create any shell scripts 
 
 When commits require new commands, those commands will be added to this section.
 
-### Adding Laravel and PHP-FPM
+### Adding Laravel and php-fpm
 
 **Please ensure all commands are run from the root of the git repository.**
 
  1. `docker build --tag="php-fpm" --file="Dockerfile.php-fpm" .`
- 2. ``docker run --detach="true" --env="APP_DEBUG=true" --env="APP_ENV=local" --volume=`pwd`/www:/var/www --name=php-fpm php-fpm``
-
+ 2. `docker build --tag="nginx" --file="Dockerfile.nginx" .`
+ 2. ``docker run --detach --env="APP_DEBUG=true" --env="APP_ENV=local" --volume="`pwd`/www:/var/www" --name=php-fpm php-fpm``
+ 3. ``docker run --detach --publish=8080:8080 --volume="`pwd`/www:/var/www" --link=php-fpm:php-fpm --name=nginx nginx``
+ 4. `docker ps`
+ 5. Navigate to your host on port _8080_!
  
-
 ## Meta
 
 If you are interested in a more full featured setup that you can use for real projects, be sure to check out my [docker-laravel](https://github.com/atrauzzi/docker-laravel) project.

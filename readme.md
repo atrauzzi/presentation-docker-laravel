@@ -18,7 +18,7 @@ In an effort to keep things simple, this demo will not create any shell scripts 
 
 When commits require new commands, those commands will be added to this section.
 
-** Please check out a phase to see commands. **
+**Please check out a phase to see commands.**
 
  
 ## Meta

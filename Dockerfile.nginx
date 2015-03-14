@@ -23,7 +23,7 @@ ADD nginx.entrypoint.sh /entrypoint.sh
 RUN ln -s /etc/nginx/sites-available/docker-laravel /etc/nginx/sites-enabled/docker-laravel
 RUN rm /etc/nginx/sites-enabled/default
 
-# Allow traffic from port 8080 to and from the container's host.
+# Make port 8080 available from this container.
 EXPOSE 8080
 
 # When the container is executed, run this script.
